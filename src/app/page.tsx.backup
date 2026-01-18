@@ -1,0 +1,456 @@
+'use client'
+
+import { useRef, useState, useEffect } from 'react'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+
+// Components
+import Navigation from '@/components/Navigation'
+import BurgerSequenceCanvas from '@/components/BurgerSequenceCanvas'
+import Testimonials from '@/components/Testimonials'
+import CTASection from '@/components/CTASection'
+import ScrollIndicator from '@/components/ScrollIndicator'
+
+export default function Home() {
+  // Shared scroll container ref for all scroll-linked animations
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+
+  // Prevent scrolling while images are loading
+  useEffect(() => {
+    if (!imagesLoaded) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [imagesLoaded])
+
+  // Shared scroll progress - all components use this
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  })
+
+  // Smooth spring for buttery animations
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  })
+
+  // DYNAMIC HEADLINES - Reduced to 4 headlines for better readability
+  // Each headline now gets 25% of scroll time (vs 12.5% before)
+
+  // Headline texts - Swedish, following competitive analysis insights
+  const headlines = [
+    {
+      title: "SMASH. STACK. REPEAT.",
+      subtitle: "Den nya generationens burgare",
+      cta: "Scrolla för att bygga din burgare"
+    },
+    {
+      title: "Svenskt kött. Bakat idag.",
+      subtitle: "Inga mellanhand. Bara kvalitet från gård till container.",
+      cta: "Färskt varje dag"
+    },
+    {
+      title: "Smashad till perfektion.",
+      subtitle: "Enkelt. Äkta. Gott.",
+      cta: "Från food truck till hela Sverige"
+    },
+    {
+      title: "Premium smak.",
+      subtitle: "Utan premium-pris.",
+      cta: "Burgare för folket."
+    }
+  ]
+
+  return (
+    <main className="relative bg-deep-black">
+      {/* Navigation */}
+      <Navigation />
+
+      {/* Scroll Indicator */}
+      <ScrollIndicator />
+
+      {/* MAIN SCROLL CONTAINER - 1000vh for extended animation journey */}
+      <div ref={containerRef} className="relative h-[1000vh]">
+
+        {/* Sticky viewport - contains canvas and fixed text overlays */}
+        <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
+
+          {/* Burger Animation Canvas */}
+          <BurgerSequenceCanvas
+            scrollProgress={scrollYProgress}
+            onImagesLoaded={() => setImagesLoaded(true)}
+          />
+
+          {/* TEXT OVERLAYS - Dynamic headlines synchronized with burger animation */}
+
+          {/* DYNAMIC HEADLINE SECTION - 4 headlines positioned absolutely */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pointer-events-none">
+            {headlines.map((headline, index) => {
+              // Calculate opacity range for this headline (4 headlines = 25% each)
+              const startProgress = index * 0.25
+              const endProgress = (index + 1) * 0.25
+              const midProgress = startProgress + (endProgress - startProgress) / 2
+
+              const opacity = useTransform(smoothProgress, [startProgress, midProgress, endProgress], [0, 1, 0])
+              const y = useTransform(smoothProgress, [startProgress, midProgress], [20, 0])
+
+              return (
+                <motion.div
+                  key={index}
+                  style={{ opacity, y }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  {/* Dark overlay for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-deep-black/80 via-deep-black/60 to-deep-black/80 pointer-events-none" />
+
+                  <div className="relative max-w-5xl text-center px-8">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-white drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
+                      {headline.title}
+                    </h1>
+                    <p className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 tracking-wide drop-shadow-xl font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)' }}>
+                      {headline.subtitle}
+                    </p>
+                    <p className="text-lg md:text-xl uppercase tracking-widest text-york-gold drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                      {headline.cta}
+                    </p>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+
+        </div>
+      </div>
+
+      {/* SECTIONS AFTER ANIMATION - Normal scrollable content */}
+
+      {/* MILKSHAKES SHOWCASE */}
+      <section className="relative py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <p className="text-label mb-4 text-york-gold">MENY</p>
+            <h2 className="text-heading mb-4 text-white">
+              Sötma, krämiga & ikoniska
+            </h2>
+            <p className="text-body text-white/60">
+              Perfekt balans mellan sötma och syrlig. Våra milkshakes är gjorda på riktig mjölk och premium glass.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 h-[500px]">
+            {/* Milkshake Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="h-full"
+            >
+              <img
+                src="/HomePageImages/ThreeMilkShakes-removebg-preview.png"
+                alt="Mister York Milkshakes - Chocolate, Oreo, Strawberry"
+                className="w-full h-full object-cover rounded-lg shadow-2xl"
+              />
+            </motion.div>
+
+            {/* Flavors List */}
+            <div className="flex flex-col justify-between h-full space-y-6">
+              {/* Chocolate Shake */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white mb-2">🍫 Chocolate Shake</h3>
+                <p className="text-white/70">
+                  Krämig chokladsmash gjord på premium belgisk choklad. Silky smooth med en intens kakaosmak som tar dig tillbaka till barndomsminnen.
+                </p>
+              </motion.div>
+
+              {/* Oreo Crunch Shake */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white mb-2">🍪 Crunchy Oreo med Grädd</h3>
+                <p className="text-white/70">
+                  Den perfekta kombinationen: krossar Oreo-kex med krämig vaniljgrädd. Knasig crunch i varje slurk tillsammans med lenmande choklad- och oreo-smak.
+                </p>
+              </motion.div>
+
+              {/* Strawberry Shake */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-colors"
+              >
+                <h3 className="text-xl font-bold text-white mb-2">🍓 Sweet Strawberry</h3>
+                <p className="text-white/70">
+                  Söt och frisk jordgubbssmooth gjord på svenska jordgubbar. En klassiker som aldrig går ur stil – naturlig sötma med frisk syrlighet.
+                </p>
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <a
+                  href="https://order.misteryork.se/se/sv-se"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center justify-center w-full py-4"
+                >
+                  Beställ shakes nu
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BURGER MENU SHOWCASE */}
+      <section className="relative py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <p className="text-label mb-4 text-york-gold">MENY</p>
+            <h2 className="text-heading mb-4 text-white">
+              Crafted with care
+            </h2>
+            <p className="text-body text-white/60">
+              Varje burgare är ett konstverk – från briochebrödet som är bakat från grunden med surdeg, till perfekt kryddskött kött som är smashad till precis rätt texturen. Det är konst.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 h-[500px]">
+            {/* Burger Menu Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img
+                src="/HomePageImages/Burger_Menu.png"
+                alt="Mister York Burger Menu"
+                className="w-full h-full object-cover rounded-lg shadow-2xl"
+              />
+            </motion.div>
+
+            {/* Menu Highlights */}
+            <div className="space-y-4">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h3 className="text-xl font-bold text-white mb-2">🍔 Signature Smash</h3>
+                <p className="text-white/70">
+                  Vår signaturburger med 100% svenskt nötkött, cheddarost, sallad, och hemgjord sås. Den som startade allt.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <h3 className="text-xl font-bold text-white mb-2">🥓 Bacon Double Smash</h3>
+                <p className="text-white/70">
+                  Dubbel smashad, bacon, cheddar, sallad och sås. För den som vill ha mer av det goda.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <h3 className="text-xl font-bold text-white mb-2">🧀 Chicken Smash</h3>
+                <p className="text-white/70">
+                Marinerad kyckling med knappt sallad, bacon och cheddar. Ett lättare alternativ för den som föredrar kyckling.
+                </p>
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <a
+                  href="https://order.misteryork.se/se/sv-se"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center justify-center w-full py-4"
+                >
+                  Se hela menyn
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: QUALITY */}
+      <section className="relative py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-xl">
+            <p className="text-label mb-4 text-york-gold">01 / KVALITET</p>
+            <h2 className="text-heading mb-6 text-white">
+              Bra kött. Bra bröd. Inga hemligheter.
+            </h2>
+            <p className="text-body text-white/60 mb-4">
+              Svenskt nötkött. Briochebröd bakat dagligen. Vår signatur-sås gjord från grunden. Inga genvägar, inga kompromisser.
+            </p>
+            <p className="text-sm text-white/40 italic">
+              Swedish beef. Brioche buns baked daily. Our signature sauce made from scratch. No shortcuts, no compromises.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: ORIGIN */}
+      <section className="relative py-24 px-6 sm:px-8 lg:px-12 bg-deep-black">
+        <div className="mx-auto max-w-7xl">
+          <div className="ml-auto max-w-xl text-right">
+            <p className="text-label mb-4 text-york-gold">02 / URSPRUNG</p>
+            <h2 className="text-heading mb-6 text-white">
+              Från container till hela Sverige
+            </h2>
+            <p className="text-body text-white/60 mb-4">
+              Vi började i en ombyggd container med en enkel idé: servera premium smash burgers utan premium-priser. Idag finns vi på 20+ platser — men vi har aldrig glömt var vi kommer ifrån.
+            </p>
+            <p className="text-sm text-white/40 italic">
+              We started in a converted container with a simple idea: serve premium smash burgers without premium prices. Today we're in 20+ locations — but we've never forgotten where we came from.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: TECHNIQUE */}
+      <section className="relative py-24 px-6 sm:px-8 lg:px-12 bg-deep-black">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl text-center">
+            <p className="text-label mb-4 text-york-gold">03 / TEKNIKEN</p>
+            <h2 className="text-heading mb-6 text-white">
+              Smashad till perfektion
+            </h2>
+            <p className="text-body text-white/60 mb-4">
+              Tunna köttpuckar pressade mot het stekyta. Knapriga kanter. Smält ost i varje tugga. Det här är konsten bakom smashen.
+            </p>
+            <p className="text-sm text-white/40 italic">
+              Thin beef patties pressed against a hot griddle. Crispy edges. Melted cheese in every bite. This is the art of the smash.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: TESTIMONIALS */}
+      <section className="relative py-24 px-6 bg-deep-black">
+        <Testimonials />
+      </section>
+
+      {/* SECTION 6: CTA */}
+      <section className="relative py-24 px-6 bg-deep-black">
+        <div className="mx-auto max-w-4xl">
+          <CTASection />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 bg-deep-black border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-12">
+          <div className="grid gap-8 md:grid-cols-4">
+            {/* Brand */}
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <img
+                  src="/logo.svg"
+                  alt="Mister York"
+                  className="h-10 w-auto"
+                />
+                <h3 className="text-2xl font-bold text-white">MISTER YORK</h3>
+              </div>
+              <p className="text-white/60 max-w-md">
+                Den nya generationens burgare. Premium smash burgers utan premium-priser.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-label mb-4">Snabblänkar</h4>
+              <ul className="space-y-2">
+                <li><a href="#meny" className="text-white/60 hover:text-white transition-colors">Meny</a></li>
+                <li><a href="#hitta-oss" className="text-white/60 hover:text-white transition-colors">Hitta oss</a></li>
+                <li><a href="#om-oss" className="text-white/60 hover:text-white transition-colors">Om oss</a></li>
+                <li><a href="#karriar" className="text-white/60 hover:text-white transition-colors">Karriär</a></li>
+              </ul>
+            </div>
+
+            {/* Newsletter */}
+            <div>
+              <h4 className="text-label mb-4">Nyhetsbrev</h4>
+              <p className="text-sm text-white/60 mb-4">Bli en York-insider</p>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="din@email.com"
+                  className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-york-red"
+                />
+                <button className="btn-primary px-4 py-2 text-sm">
+                  Gå med
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-white/40">
+              © 2025 Mister York. Alla rättigheter förbehållna.
+            </p>
+            <div className="flex gap-6">
+              <a href="#" className="text-white/40 hover:text-white transition-colors">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  )
+}
