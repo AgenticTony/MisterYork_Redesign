@@ -88,7 +88,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="absolute inset-0 h-full w-full object-contain md:hidden bg-deep-black z-0 -translate-y-1/4"
+            className="absolute inset-0 h-full w-full object-contain md:hidden bg-deep-black -translate-y-[12.5%]"
             poster="/HomePageImages/frame_0001.jpg"
           >
             <source src="/HomePageImages/MisterYorkVid.mp4" type="video/mp4" />
@@ -132,6 +132,7 @@ export default function Home() {
 
               const opacity = useTransform(smoothProgress, [startProgress, midProgress, endProgress], [0, 1, 0])
               const y = useTransform(smoothProgress, [startProgress, midProgress], [20, 0])
+              
 
               return (
                 <motion.div
