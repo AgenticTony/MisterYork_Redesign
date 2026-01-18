@@ -17,8 +17,8 @@ export default function BurgerSequenceCanvas({
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const [loadProgress, setLoadProgress] = useState(0)
 
-  // Total frames (reduced from 192 to 48 by skipping every 4th frame)
-  const TOTAL_FRAMES = 48
+  // Total frames (reduced from 192 to 64 by skipping every 3rd frame)
+  const TOTAL_FRAMES = 64
   const FRAME_START = 0
 
   // Map scroll progress to frame index
@@ -33,8 +33,8 @@ export default function BurgerSequenceCanvas({
       const loadImageForIndex = (index: number): Promise<void> => {
         return new Promise((resolve) => {
           const img = new Image()
-          // Skip every 4th frame by multiplying index by 4
-          const actualFrameNumber = index * 4
+          // Skip every 3rd frame by multiplying index by 3
+          const actualFrameNumber = index * 3
           const frameNumber = String(actualFrameNumber).padStart(3, '0')
 
           // Pattern: frames 1, 4, 7, 10, 13... (frame % 3 === 1) use delay-0.041s
