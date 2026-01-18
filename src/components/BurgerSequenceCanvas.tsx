@@ -110,10 +110,6 @@ export default function BurgerSequenceCanvas({
       const canvasAspect = canvas.width / canvas.height
       const imgAspect = img.width / img.height
 
-      // On mobile, scale up the burger by 1.5x
-      const isMobile = window.innerWidth < 768
-      const scaleMultiplier = isMobile ? 1.6 : 1.0
-
       let drawWidth: number
       let drawHeight: number
       let offsetX: number
@@ -121,14 +117,14 @@ export default function BurgerSequenceCanvas({
 
       if (imgAspect > canvasAspect) {
         // Image is wider than canvas
-        drawWidth = canvas.width * scaleMultiplier
-        drawHeight = (canvas.width / imgAspect) * scaleMultiplier
+        drawWidth = canvas.width
+        drawHeight = canvas.width / imgAspect
         offsetX = 0
         offsetY = (canvas.height - drawHeight) / 2
       } else {
         // Image is taller than canvas
-        drawHeight = canvas.height * scaleMultiplier
-        drawWidth = (canvas.height * imgAspect) * scaleMultiplier
+        drawHeight = canvas.height
+        drawWidth = canvas.height * imgAspect
         offsetX = (canvas.width - drawWidth) / 2
         offsetY = 0
       }
