@@ -156,6 +156,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="order-1 md:order-1"
             >
               <img
                 src="/HomePageImages/Burger_Menu.png"
@@ -165,7 +166,7 @@ export default function Home() {
             </motion.div>
 
             {/* Menu Highlights */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 order-2 md:order-2">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -202,13 +203,13 @@ export default function Home() {
                 </p>
               </motion.div>
 
-              {/* CTA Button */}
+              {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8"
+                className="mt-8 hidden md:block"
               >
                 <a
                   href="https://order.misteryork.se/se/sv-se"
@@ -228,8 +229,23 @@ export default function Home() {
       <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
         <div className="mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
-            {/* Flavors List */}
-            <div className="flex flex-col space-y-4">
+            {/* Milkshake Image - First on mobile */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="order-1 md:order-1 h-full"
+            >
+              <img
+                src="/HomePageImages/ThreeMilkShakes-removebg-preview.png"
+                alt="Mister York Milkshakes - Chocolate, Oreo, Strawberry"
+                className="w-full h-full object-cover rounded-lg shadow-2xl"
+              />
+            </motion.div>
+
+            {/* Flavors List - Second on mobile */}
+            <div className="flex flex-col space-y-4 order-2 md:order-2">
               {/* Chocolate Shake */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -269,13 +285,13 @@ export default function Home() {
                 </p>
               </motion.div>
 
-              {/* CTA Button */}
+              {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8"
+                className="mt-8 hidden md:block"
               >
                 <a
                   href="https://order.misteryork.se/se/sv-se"
@@ -287,21 +303,6 @@ export default function Home() {
                 </a>
               </motion.div>
             </div>
-
-            {/* Milkshake Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="h-full"
-            >
-              <img
-                src="/HomePageImages/ThreeMilkShakes-removebg-preview.png"
-                alt="Mister York Milkshakes - Chocolate, Oreo, Strawberry"
-                className="w-full h-full object-cover rounded-lg shadow-2xl"
-              />
-            </motion.div>
           </div>
         </div>
       </section>
@@ -316,6 +317,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="order-1 md:order-1"
             >
               <img
                 src="/HomePageImages/KaffeDessert.png"
@@ -325,7 +327,7 @@ export default function Home() {
             </motion.div>
 
             {/* Menu Items */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 order-2 md:order-2">
               {/* Latte */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -365,13 +367,13 @@ export default function Home() {
                 </p>
               </motion.div>
 
-              {/* CTA Button */}
+              {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8"
+                className="mt-8 hidden md:block"
               >
                 <a
                   href="https://order.misteryork.se/se/sv-se"
