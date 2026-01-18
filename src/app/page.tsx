@@ -15,6 +15,12 @@ export default function Home() {
   // Shared scroll container ref for all scroll-linked animations
   const containerRef = useRef<HTMLDivElement>(null)
   const [imagesLoaded, setImagesLoaded] = useState(false)
+  const [currentYear, setCurrentYear] = useState(2026)
+
+  // Set current year on client side only
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear())
+  }, [])
 
   // Prevent scrolling while images are loading
   useEffect(() => {
@@ -613,7 +619,7 @@ export default function Home() {
           {/* Bottom Bar */}
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white/40">
-              © {new Date().getFullYear()} Mister York. Alla rättigheter förbehållna.
+              © {currentYear} Mister York. Alla rättigheter förbehållna.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-white/40 hover:text-white transition-colors">
