@@ -62,13 +62,16 @@ export default function Navigation() {
           >
             Om oss
           </Link>
-          <motion.button
-            className="btn-primary"
+          <motion.a
+            href="https://order.misteryork.se/se/sv-se"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-block"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Beställ
-          </motion.button>
+          </motion.a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -155,8 +158,12 @@ export default function Navigation() {
               Om oss
             </Link>
           </motion.div>
-          <motion.button
-            className="btn-primary text-xl px-12 py-4 mt-4"
+          <motion.a
+            href="https://order.misteryork.se/se/sv-se"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="btn-primary text-xl px-12 py-4 mt-4 inline-block text-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
@@ -164,7 +171,7 @@ export default function Navigation() {
             transition={{ delay: 0.4 }}
           >
             Beställ
-          </motion.button>
+          </motion.a>
         </div>
       </motion.div>
 
@@ -174,9 +181,14 @@ export default function Navigation() {
         animate={{ y: scrolled ? 0 : 100 }}
         className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-deep-black/95 backdrop-blur-sm border-t border-white/10 p-4"
       >
-        <button className="btn-primary w-full text-center">
+        <a
+          href="https://order.misteryork.se/se/sv-se"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary w-full text-center inline-block"
+        >
           Beställ nu
-        </button>
+        </a>
       </motion.div>
     </motion.header>
   )

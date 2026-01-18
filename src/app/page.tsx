@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import Link from 'next/link'
 
 // Components
 import Navigation from '@/components/Navigation'
@@ -420,6 +421,115 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECTION 7: HITTA OSS */}
+      <section id="hitta-oss" className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-12 bg-deep-black">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-york-gold tracking-widest">HITTA OSS</p>
+            <h2 className="text-heading mb-4 text-white">
+              20+ restauranger i Sverige
+            </h2>
+            <p className="text-body text-white/60">
+              Hitta din närmaste Mister York och smaka på den bästa smash-burgaren i Sverige.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
+            >
+              <h3 className="text-xl font-bold text-york-gold mb-2">Stockholm</h3>
+              <p className="text-white/70 text-sm mb-4">Gallerian, Sergelgatan</p>
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
+              >
+                <span>Visa på karta</span>
+                <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
+            >
+              <h3 className="text-xl font-bold text-york-gold mb-2">Göteborg</h3>
+              <p className="text-white/70 text-sm mb-4">Nordstan, Östra Hamngatan</p>
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
+              >
+                <span>Visa på karta</span>
+                <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
+            >
+              <h3 className="text-xl font-bold text-york-gold mb-2">Malmö</h3>
+              <p className="text-white/70 text-sm mb-4">Triangeln, Malmö Centrum</p>
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
+              >
+                <span>Visa på karta</span>
+                <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 text-center"
+          >
+            <a
+              href="https://www.misteryork.se/hitta-oss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              Se alla restauranger
+              <svg className="h-5 w-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="relative z-10 bg-deep-black border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-12">
@@ -445,8 +555,8 @@ export default function Home() {
               <ul className="space-y-2">
                 <li><a href="#meny" className="text-white/60 hover:text-white transition-colors">Meny</a></li>
                 <li><a href="#hitta-oss" className="text-white/60 hover:text-white transition-colors">Hitta oss</a></li>
-                <li><a href="#om-oss" className="text-white/60 hover:text-white transition-colors">Om oss</a></li>
-                <li><a href="#karriar" className="text-white/60 hover:text-white transition-colors">Karriär</a></li>
+                <li><Link href="/om-oss" className="text-white/60 hover:text-white transition-colors">Om oss</Link></li>
+                <li><a href="https://www.misteryork.se/karriar" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">Karriär</a></li>
               </ul>
             </div>
 
