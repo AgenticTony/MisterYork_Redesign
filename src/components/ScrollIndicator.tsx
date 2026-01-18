@@ -9,18 +9,15 @@ export default function ScrollIndicator() {
   return (
     <motion.div
       style={{ opacity }}
-      className="fixed bottom-12 left-1/2 z-30 -translate-x-1/2 flex flex-col items-center gap-2"
+      className="fixed bottom-24 left-1/2 z-30 -translate-x-1/2 flex flex-col items-center"
     >
-      <p className="text-xs uppercase tracking-widest text-white/40">
-        Scrolla för att utforska
-      </p>
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         className="text-white/60"
       >
         <svg
-          className="h-6 w-6"
+          className="h-8 w-8"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
