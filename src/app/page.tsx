@@ -79,7 +79,7 @@ export default function Home() {
       <div ref={containerRef} className="relative h-[1000vh]">
 
         {/* Sticky viewport - contains canvas and fixed text overlays */}
-        <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
+        <div className="sticky top-0 flex h-screen w-full items-start justify-center overflow-hidden pt-16 md:pt-0 md:items-center md:justify-center">
 
           {/* Burger Animation Canvas */}
           <BurgerSequenceCanvas
@@ -109,14 +109,14 @@ export default function Home() {
                   {/* Dark overlay for better text readability */}
                   <div className="absolute inset-0 bg-linear-to-b from-deep-black/80 via-deep-black/60 to-deep-black/80 pointer-events-none" />
 
-                  <div className="relative max-w-5xl text-center px-8">
-                    <h1 className="text-3xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 text-white drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
+                  <div className="relative max-w-5xl text-center px-4 md:px-8">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-8 text-white drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
                       {headline.title}
                     </h1>
-                    <p className="text-lg md:text-2xl lg:text-4xl text-white mb-4 md:mb-6 tracking-wide drop-shadow-xl font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)' }}>
+                    <p className="text-xl md:text-2xl lg:text-4xl text-white mb-3 md:mb-6 tracking-wide drop-shadow-xl font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)' }}>
                       {headline.subtitle}
                     </p>
-                    <p className="text-sm md:text-lg uppercase tracking-widest text-york-gold drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                    <p className="text-xs sm:text-sm md:text-lg uppercase tracking-widest text-york-gold drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
                       {headline.cta}
                     </p>
                   </div>
