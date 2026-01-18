@@ -65,10 +65,8 @@ export default function BurgerSequenceCanvas({
         await loadImageForIndex(index)
       }
 
-      // Load all frames
-      for (let i = FRAME_START; i < TOTAL_FRAMES; i++) {
-        await loadFrame(i)
-      }
+      // Load all frames in parallel for much faster loading
+      await Promise.all(Array.from({ length: TOTAL_FRAMES }, (_, i) => loadFrame(i)))
 
       // Keep the array with same indices (null frames will be skipped during draw)
       imagesRef.current = images as HTMLImageElement[]
