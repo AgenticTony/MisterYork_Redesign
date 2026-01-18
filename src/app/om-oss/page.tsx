@@ -17,7 +17,7 @@ export default function OmOssPage() {
           alt="Mister York Food Truck"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-black/30 via-deep-black/50 to-deep-black" />
+        <div className="absolute inset-0 bg-linear-to-b from-deep-black/30 via-deep-black/50 to-deep-black" />
       </section>
 
       {/* Hero Title Section */}
