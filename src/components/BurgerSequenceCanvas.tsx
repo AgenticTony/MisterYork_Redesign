@@ -121,13 +121,13 @@ export default function BurgerSequenceCanvas({
         // Image is wider than canvas
         drawWidth = canvas.width * scaleMultiplier
         drawHeight = (canvas.width / imgAspect) * scaleMultiplier
-        offsetX = isMobilePortrait ? -canvas.width * 0.15 : 0
+        offsetX = 0
         offsetY = (canvas.height - drawHeight) / 2
       } else {
         // Image is taller than canvas
         drawHeight = canvas.height * scaleMultiplier
         drawWidth = (canvas.height * imgAspect) * scaleMultiplier
-        offsetX = isMobilePortrait ? -canvas.width * 0.15 : (canvas.width - drawWidth) / 2
+        offsetX = (canvas.width - drawWidth) / 2
         offsetY = 0
       }
 
