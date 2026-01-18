@@ -105,7 +105,7 @@ export default function Home() {
           {/* TEXT OVERLAYS - Dynamic headlines synchronized with burger animation */}
 
           {/* MOBILE HEADLINE - Always visible, first headline only */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pointer-events-none md:hidden">
+          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pointer-events-none md:hidden -translate-y-[12.5%]">
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-deep-black/80 via-deep-black/60 to-deep-black/80 pointer-events-none" />
 
