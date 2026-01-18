@@ -1,10 +1,17 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 
 export default function OmOssPage() {
+  const [currentYear, setCurrentYear] = useState(2026)
+
+  // Set current year on client side only
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear())
+  }, [])
   return (
     <main className="relative bg-deep-black min-h-screen">
       {/* Navigation */}
@@ -262,7 +269,7 @@ export default function OmOssPage() {
           {/* Bottom Bar */}
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white/40">
-              © 2025 Mister York. Alla rättigheter förbehållna.
+              © {currentYear} Mister York. Alla rättigheter förbehållna.
             </p>
             <div className="flex gap-6">
               <a href="https://www.facebook.com/misteryorkburgers/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white transition-colors">
