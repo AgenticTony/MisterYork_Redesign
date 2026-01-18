@@ -79,7 +79,7 @@ export default function Home() {
       <div ref={containerRef} className="relative h-[1000vh]">
 
         {/* Sticky viewport - contains canvas and fixed text overlays */}
-        <div className="sticky top-0 flex h-screen w-full items-start justify-center overflow-hidden pt-16 md:pt-0 md:items-center md:justify-center">
+        <div className="sticky top-0 flex h-screen w-full items-start justify-center overflow-hidden pt-8 md:pt-0 md:items-center md:justify-center">
 
           {/* Burger Animation Canvas */}
           <BurgerSequenceCanvas
