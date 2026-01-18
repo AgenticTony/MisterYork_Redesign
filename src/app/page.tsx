@@ -88,7 +88,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="absolute inset-0 h-full w-full object-contain md:hidden bg-deep-black z-0"
+            className="absolute inset-0 h-full w-full object-contain md:hidden bg-deep-black z-0 -translate-y-1/4"
             poster="/HomePageImages/frame_0001.jpg"
           >
             <source src="/HomePageImages/MisterYorkVid.mp4" type="video/mp4" />
