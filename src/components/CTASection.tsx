@@ -17,7 +17,7 @@ export default function CTASection() {
     <motion.div
       ref={containerRef}
       style={{ opacity, scale }}
-      className="section-content relative z-10 mx-auto max-w-4xl px-6 py-24 text-center sm:px-8 lg:px-12"
+      className="section-content relative z-10 mx-auto max-w-4xl px-4 py-16 md:py-24 text-center sm:px-6 lg:px-12"
     >
       {/* Headline */}
       <motion.h2
@@ -25,7 +25,7 @@ export default function CTASection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-display mb-6 text-white"
+        className="text-4xl md:text-display mb-4 md:mb-6 text-white"
       >
         Hungrig?
       </motion.h2>
@@ -36,7 +36,7 @@ export default function CTASection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-body mb-12 max-w-2xl mx-auto"
+        className="text-base md:text-body mb-8 md:mb-12 max-w-2xl mx-auto"
       >
         Beställ nu och få din första burgare på under 10 minuter
       </motion.p>
@@ -50,7 +50,7 @@ export default function CTASection() {
         className="mb-8"
       >
         <motion.button
-          className="btn-primary text-lg px-12 py-5"
+          className="btn-primary text-base md:text-lg px-8 md:px-12 py-3 md:py-5 w-full sm:w-auto"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           animate={{
@@ -104,11 +104,11 @@ export default function CTASection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="flex flex-wrap justify-center gap-6 text-sm text-white/40"
+        className="flex flex-wrap justify-center gap-3 md:gap-6 text-xs md:text-sm text-white/40"
       >
         <div className="flex items-center gap-2">
           <svg
-            className="h-5 w-5 text-york-gold"
+            className="h-4 w-4 md:h-5 md:w-5 text-york-gold"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -123,7 +123,7 @@ export default function CTASection() {
 
         <div className="flex items-center gap-2">
           <svg
-            className="h-5 w-5 text-york-gold"
+            className="h-4 w-4 md:h-5 md:w-5 text-york-gold"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -134,7 +134,7 @@ export default function CTASection() {
 
         <div className="flex items-center gap-2">
           <svg
-            className="h-5 w-5 text-york-gold"
+            className="h-4 w-4 md:h-5 md:w-5 text-york-gold"
             fill="currentColor"
             viewBox="0 0 20 20"
           >

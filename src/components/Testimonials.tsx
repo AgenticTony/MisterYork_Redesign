@@ -36,23 +36,23 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   return (
-    <div className="section-content relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
-      <div className="grid gap-12 md:grid-cols-3">
+    <div className="section-content relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-12">
+      <div className="grid gap-8 md:gap-12 md:grid-cols-3">
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={testimonial.id}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.6 }}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 md:p-8"
           >
             {/* Header with Image and Stars */}
-            <div className="mb-6 flex items-center gap-4">
+            <div className="mb-4 md:mb-6 flex items-center gap-3 md:gap-4">
               {/* Circular Image */}
               <img
                 src={testimonial.image}
                 alt={testimonial.author}
-                className="h-16 w-16 rounded-full object-cover border-2 border-york-gold"
+                className="h-12 w-12 md:h-16 md:w-16 rounded-full object-cover border-2 border-york-gold"
               />
               {/* Stars */}
               <div className="flex gap-1">
@@ -70,13 +70,13 @@ export default function Testimonials() {
             </div>
 
             {/* Quote */}
-            <blockquote className="mb-6 text-xl font-medium text-white/90">
+            <blockquote className="mb-4 md:mb-6 text-base md:text-xl font-medium text-white/90">
               "{testimonial.quote}"
             </blockquote>
 
             {/* Author */}
             <cite className="not-italic">
-              <p className="text-sm uppercase tracking-wider text-york-gold">
+              <p className="text-xs md:text-sm uppercase tracking-wider text-york-gold">
                 {testimonial.author}
               </p>
             </cite>

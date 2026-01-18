@@ -110,13 +110,13 @@ export default function Home() {
                   <div className="absolute inset-0 bg-linear-to-b from-deep-black/80 via-deep-black/60 to-deep-black/80 pointer-events-none" />
 
                   <div className="relative max-w-5xl text-center px-8">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-white drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
+                    <h1 className="text-3xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 text-white drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
                       {headline.title}
                     </h1>
-                    <p className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 tracking-wide drop-shadow-xl font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)' }}>
+                    <p className="text-lg md:text-2xl lg:text-4xl text-white mb-4 md:mb-6 tracking-wide drop-shadow-xl font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)' }}>
                       {headline.subtitle}
                     </p>
-                    <p className="text-lg md:text-xl uppercase tracking-widest text-york-gold drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                    <p className="text-sm md:text-lg uppercase tracking-widest text-york-gold drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
                       {headline.cta}
                     </p>
                   </div>
@@ -131,7 +131,7 @@ export default function Home() {
       {/* SECTIONS AFTER ANIMATION - Normal scrollable content */}
 
       {/* BURGER MENU SHOWCASE */}
-      <section className="relative pt-2 pb-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
+      <section className="relative pt-2 pb-8 md:pb-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -140,7 +140,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-3xl md:text-4xl font-bold mb-4 text-york-gold tracking-widest">MENY</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-york-gold tracking-widest">MENY</p>
             <h2 className="text-heading mb-4 text-white">
               Crafted with care
             </h2>
@@ -149,7 +149,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 h-[500px]">
+          <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
             {/* Burger Menu Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -172,7 +172,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🍔 Signature Smash</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🍔 Signature Smash</h3>
                 <p className="text-white/70">
                   Vår signaturburger med 100% svenskt nötkött, cheddarost, sallad, och hemgjord sås. Den som startade allt.
                 </p>
@@ -184,7 +184,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🥓 Bacon Double Smash</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🥓 Bacon Double Smash</h3>
                 <p className="text-white/70">
                   Dubbel smashad, bacon, cheddar, sallad och sås. För den som vill ha mer av det goda.
                 </p>
@@ -196,7 +196,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🧀 Chicken Smash</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🧀 Chicken Smash</h3>
                 <p className="text-white/70">
                 Marinerad kyckling med knappt sallad, bacon och cheddar. Ett lättare alternativ för den som föredrar kyckling.
                 </p>
@@ -225,9 +225,9 @@ export default function Home() {
       </section>
 
       {/* MILKSHAKES SHOWCASE */}
-      <section className="relative py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
+      <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
         <div className="mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8 h-[500px]">
+          <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
             {/* Flavors List */}
             <div className="flex flex-col space-y-4">
               {/* Chocolate Shake */}
@@ -237,7 +237,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🍫 Chocolate Shake</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🍫 Chocolate Shake</h3>
                 <p className="text-white/70">
                   Krämig chokladsmash gjord på premium belgisk choklad. Silky smooth med en intens kakaosmak som tar dig tillbaka till barndomsminnen.
                 </p>
@@ -250,7 +250,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🍪 Crunchy Oreo med Grädd</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🍪 Crunchy Oreo med Grädd</h3>
                 <p className="text-white/70">
                   Den perfekta kombinationen: krossar Oreo-kex med krämig vaniljgrädd. Knasig crunch i varje slurk tillsammans med lenmande choklad- och oreo-smak.
                 </p>
@@ -263,7 +263,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🍓 Sweet Strawberry</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🍓 Sweet Strawberry</h3>
                 <p className="text-white/70">
                   Söt och frisk jordgubbssmooth gjord på svenska jordgubbar. En klassiker som aldrig går ur stil – naturlig sötma med frisk syrlighet.
                 </p>
@@ -307,9 +307,9 @@ export default function Home() {
       </section>
 
       {/* COFFEE & DESSERT SHOWCASE */}
-      <section className="relative py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
+      <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
         <div className="mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8 h-[500px]">
+          <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
             {/* Coffee & Dessert Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -333,7 +333,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">☕ Latte</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">☕ Latte</h3>
                 <p className="text-white/70">
                   Nybryggd espressoblandad med silkeslen ångad mjölk. Perfekt balans mellan stark kaffe och krämig mjölk.
                 </p>
@@ -346,7 +346,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🍪 Oreo Swirl</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🍪 Oreo Swirl</h3>
                 <p className="text-white/70">
                   Hemgjord vaniljglass swirlad med krossat Oreo-kex. Krämig, knasig och helt underbar.
                 </p>
@@ -359,7 +359,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">🍫 Daim Swirl</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">🍫 Daim Swirl</h3>
                 <p className="text-white/70">
                   Svensk karamellglass med bitar av Daim. Salt karamell möter chokladkrunch i varje tugga.
                 </p>
@@ -389,7 +389,7 @@ export default function Home() {
 
 
       {/* SECTION 2: QUALITY}
-      <section className="relative py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
+      <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-xl">
             <p className="text-label mb-4 text-york-gold">01 / KVALITET</p>
@@ -407,12 +407,12 @@ export default function Home() {
       </section>
 
       {/* SECTION 5: TESTIMONIALS */}
-      <section className="relative py-24 px-6 bg-deep-black">
+      <section className="relative py-16 md:py-24 px-4 sm:px-6 bg-deep-black">
         <Testimonials />
       </section>
 
       {/* SECTION 6: CTA */}
-      <section className="relative py-24 px-6 bg-deep-black">
+      <section className="relative py-16 md:py-24 px-4 sm:px-6 bg-deep-black">
         <div className="mx-auto max-w-4xl">
           <CTASection />
         </div>
