@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { scrollY } = useScroll()
 
   const backgroundColor = useTransform(
@@ -71,8 +72,12 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="sm:hidden text-white p-2">
-          <svg
+        <button
+          className="sm:hidden text-white p-2 relative z-50"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <motion.svg
             className="h-6 w-6"
             fill="none"
             strokeLinecap="round"
@@ -80,11 +85,88 @@ export default function Navigation() {
             strokeWidth="2"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            animate={mobileMenuOpen ? "open" : "closed"}
           >
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+            <motion.path
+              variants={{
+                closed: { d: "M4 6h16" },
+                open: { d: "M4 18h16" }
+              }}
+            />
+            <motion.path
+              variants={{
+                closed: { d: "M4 12h16", opacity: 1 },
+                open: { d: "M4 12h16", opacity: 0 }
+              }}
+              transition={{ duration: 0.1 }}
+            />
+            <motion.path
+              variants={{
+                closed: { d: "M4 18h16" },
+                open: { d: "M4 6h16" }
+              }}
+            />
+          </motion.svg>
         </button>
       </nav>
+
+      {/* Mobile Menu */}
+      <motion.div
+        initial={false}
+        animate={mobileMenuOpen ? "open" : "closed"}
+        variants={{
+          open: { opacity: 1, x: 0 },
+          closed: { opacity: 0, x: "100%" }
+        }}
+        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+        className="fixed inset-0 z-40 sm:hidden bg-deep-black/98 backdrop-blur-lg"
+      >
+        <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
+          <motion.a
+            href="#meny"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-3xl font-bold text-white hover:text-york-gold transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            animate={mobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.1 }}
+          >
+            Meny
+          </motion.a>
+          <motion.a
+            href="#hitta-oss"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-3xl font-bold text-white hover:text-york-gold transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            animate={mobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.2 }}
+          >
+            Hitta oss
+          </motion.a>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={mobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.3 }}
+          >
+            <Link
+              href="/om-oss"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-3xl font-bold text-white hover:text-york-gold transition-colors"
+            >
+              Om oss
+            </Link>
+          </motion.div>
+          <motion.button
+            className="btn-primary text-xl px-12 py-4 mt-4"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={mobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.4 }}
+          >
+            Beställ
+          </motion.button>
+        </div>
+      </motion.div>
 
       {/* Mobile Bottom CTA Bar */}
       <motion.div
