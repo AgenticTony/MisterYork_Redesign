@@ -64,13 +64,13 @@
     font-family: 'Sharp Grotesk', 'Inter', system-ui, sans-serif;
   }
 
-  @screen md {
+  @media (min-width: 768px) {
     .text-display {
       font-size: theme('fontSize.7xl');
     }
   }
 
-  @screen lg {
+  @media (min-width: 1024px) {
     .text-display {
       font-size: theme('fontSize.8xl');
     }
@@ -83,13 +83,13 @@
     font-family: 'Sharp Grotesk', 'Inter', system-ui, sans-serif;
   }
 
-  @screen md {
+  @media (min-width: 768px) {
     .text-heading {
       font-size: theme('fontSize.4xl');
     }
   }
 
-  @screen lg {
+  @media (min-width: 1024px) {
     .text-heading {
       font-size: theme('fontSize.5xl');
     }
@@ -101,7 +101,7 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  @screen md {
+  @media (min-width: 768px) {
     .text-body {
       font-size: theme('fontSize.xl');
     }
