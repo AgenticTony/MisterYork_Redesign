@@ -76,17 +76,31 @@ export default function Home() {
       {/* Scroll Indicator */}
       <ScrollIndicator />
 
-      {/* MAIN SCROLL CONTAINER - 1000vh for extended animation journey */}
-      <div ref={containerRef} className="relative h-[1000vh]">
+      {/* MAIN SCROLL CONTAINER - 1000vh for extended animation journey on web */}
+      <div ref={containerRef} className="relative h-screen md:h-[1000vh]">
 
-        {/* Sticky viewport - contains canvas and fixed text overlays */}
+        {/* Sticky viewport - contains canvas/video and fixed text overlays */}
         <div className="sticky top-0 flex h-screen w-full items-start justify-center overflow-hidden pt-8 md:pt-0 md:items-center md:justify-center">
 
-          {/* Burger Animation Canvas */}
-          <BurgerSequenceCanvas
-            scrollProgress={scrollYProgress}
-            onImagesLoaded={() => setImagesLoaded(true)}
-          />
+          {/* Mobile Video - Hidden on md+ screens */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover md:hidden"
+            poster="/HomePageImages/frame_0001.jpg"
+          >
+            <source src="/HomePageImages/MisterYorkVid.mp4" type="video/mp4" />
+          </video>
+
+          {/* Burger Animation Canvas - Hidden on mobile, shown on md+ */}
+          <div className="hidden md:block absolute inset-0">
+            <BurgerSequenceCanvas
+              scrollProgress={scrollYProgress}
+              onImagesLoaded={() => setImagesLoaded(true)}
+            />
+          </div>
 
           {/* TEXT OVERLAYS - Dynamic headlines synchronized with burger animation */}
 
