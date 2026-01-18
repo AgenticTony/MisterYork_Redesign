@@ -80,7 +80,7 @@ export default function Home() {
       <div ref={containerRef} className="relative h-screen md:h-[1000vh]">
 
         {/* Sticky viewport - contains canvas/video and fixed text overlays */}
-        <div className="sticky top-0 flex h-screen w-full items-start justify-center overflow-hidden pt-8 md:pt-0 md:items-center md:justify-center">
+        <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
 
           {/* Mobile Video - Hidden on md+ screens */}
           <video
@@ -104,8 +104,26 @@ export default function Home() {
 
           {/* TEXT OVERLAYS - Dynamic headlines synchronized with burger animation */}
 
-          {/* DYNAMIC HEADLINE SECTION - 4 headlines positioned absolutely */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pointer-events-none">
+          {/* MOBILE HEADLINE - Always visible, first headline only */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pointer-events-none md:hidden">
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-deep-black/80 via-deep-black/60 to-deep-black/80 pointer-events-none" />
+
+            <div className="relative max-w-5xl text-center px-4">
+              <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
+                {headlines[0].title}
+              </h1>
+              <p className="text-xl text-white mb-3 tracking-wide drop-shadow-xl font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)' }}>
+                {headlines[0].subtitle}
+              </p>
+              <p className="text-xs sm:text-sm uppercase tracking-widest text-york-gold drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                {headlines[0].cta}
+              </p>
+            </div>
+          </div>
+
+          {/* DESKTOP DYNAMIC HEADLINE SECTION - 4 headlines positioned absolutely, hidden on mobile */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pointer-events-none hidden md:flex">
             {headlines.map((headline, index) => {
               // Calculate opacity range for this headline (4 headlines = 25% each)
               const startProgress = index * 0.25
@@ -122,7 +140,7 @@ export default function Home() {
                   className="absolute inset-0 flex items-center justify-center"
                 >
                   {/* Dark overlay for better text readability */}
-                  <div className="absolute inset-0 bg-linear-to-b from-deep-black/80 via-deep-black/60 to-deep-black/80 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-deep-black/80 via-deep-black/60 to-deep-black/80 pointer-events-none" />
 
                   <div className="relative max-w-5xl text-center px-4 md:px-8">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-8 text-white drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
