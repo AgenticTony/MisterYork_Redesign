@@ -534,7 +534,7 @@ export default function Home() {
               <h3 className="text-xl font-bold text-york-gold mb-2">Malmö</h3>
               <p className="text-white/70 text-sm mb-4">Triangeln, Malmö Centrum</p>
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/search/?api=1&query=Triangeln+Malm%C3%B6+Centrum"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
