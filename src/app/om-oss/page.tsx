@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
+import { fadeInUp, slideInLeft, slideInRight, scaleIn, createScaleIn, hoverTap, mobileMenuItem } from '@/lib/animations'
 
 export default function OmOssPage() {
   const [currentYear, setCurrentYear] = useState(2026)
@@ -31,10 +32,10 @@ export default function OmOssPage() {
       <section className="py-12 pb-4 px-6 sm:px-8 lg:px-12 bg-deep-black">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               OM OSS
@@ -50,10 +51,10 @@ export default function OmOssPage() {
       <section className="pt-8 pb-12 px-6 sm:px-8 lg:px-12 bg-deep-black">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={mobileMenuItem}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
             <p className="text-body text-white/80 leading-relaxed text-lg">
               Vad som då var en aningslös satsning i svåra tider påvisade en stark efterfrågan efter lättillgänglig take away-mat av hög kvalitét. Konceptet har sedan dess utvecklats och expanderat vidare i landet men kärleken till produkten kvarstår och York-kulturen växer sig starkare för varje dag som går. Det är våra medarbetare som gör det vi står för möjligt och vi blir ständigt inspirerade av hur många som delar samma förkärlek som vi gör till riktigt bra burgare, service och arbetskultur. Vi ska vara nytänkande, autentiska och alltid ödmjuka inför självförbättring.
@@ -67,10 +68,10 @@ export default function OmOssPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              variants={slideInLeft}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
             >
               <p className="text-label mb-4 text-york-gold">HISTORIA</p>
               <h2 className="text-heading mb-6 text-white">Vår historia</h2>
@@ -83,10 +84,10 @@ export default function OmOssPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              variants={slideInRight}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="relative"
             >
               <img
@@ -104,19 +105,19 @@ export default function OmOssPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6">
             <motion.img
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              variants={scaleIn}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               src="/OmOss/2001e139-949f-49ad-98fd-16bf619634ee_image_6483441-8.JPG"
               alt="Mister York"
               className="w-full h-auto object-cover rounded-lg"
             />
             <motion.img
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              variants={createScaleIn(0.1)}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
               src="/OmOss/499ab4f9-fcb4-40f9-973f-df019c158c27_image_6483441-5.JPG"
               alt="Mister York"
               className="w-full h-auto object-cover rounded-lg"
@@ -129,10 +130,10 @@ export default function OmOssPage() {
       <section className="py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={mobileMenuItem}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
             <p className="text-label mb-4 text-york-gold">VÅR VISION</p>
             <h2 className="text-heading mb-6 text-white">York-kulturen</h2>
@@ -150,20 +151,20 @@ export default function OmOssPage() {
       <section className="py-16 px-6 sm:px-8 lg:px-12 bg-deep-black">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="text-center mb-8"
           >
             <p className="text-label mb-4 text-york-gold">VÅRA ENHETER</p>
             <h2 className="text-heading text-white">Från container till hela Sverige</h2>
           </motion.div>
           <motion.img
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            variants={scaleIn}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             src="/OmOss/vaxjo_enhet.jpg"
             alt="Växjö Enhet"
             className="w-full h-auto rounded-lg shadow-2xl"
@@ -176,10 +177,10 @@ export default function OmOssPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              variants={slideInLeft}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="order-2 md:order-1"
             >
               <img
@@ -190,10 +191,10 @@ export default function OmOssPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              variants={slideInRight}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="order-1 md:order-2"
             >
               <p className="text-label mb-4 text-york-gold">KARRIÄR</p>
@@ -209,8 +210,9 @@ export default function OmOssPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary inline-block"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                variants={hoverTap}
+                whileHover="hover"
+                whileTap="tap"
               >
                 Jobba med oss
               </motion.a>
