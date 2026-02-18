@@ -42,7 +42,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#050505" />
       </head>
-      <body className="antialiased" suppressHydrationWarning>{children}</body>
+      <body className="antialiased" suppressHydrationWarning>
+        <a href="#main-content" className="sr-only-focus">
+          Hoppa till huvudinnehåll
+        </a>
+        {children}
+      </body>
     </html>
   )
 }
