@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { createFadeInUp, createFadeIn, hoverTap } from '@/lib/animations'
 
 export default function CTASection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -21,10 +22,10 @@ export default function CTASection() {
     >
       {/* Headline */}
       <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={createFadeInUp(0)}
+        initial="initial"
+        whileInView="animate"
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
         className="text-4xl md:text-display mb-4 md:mb-6 text-white"
       >
         Hungrig?
@@ -32,10 +33,10 @@ export default function CTASection() {
 
       {/* Sub-headline */}
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={createFadeInUp(0.1)}
+        initial="initial"
+        whileInView="animate"
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
         className="text-base md:text-body mb-8 md:mb-12 max-w-2xl mx-auto"
       >
         Beställ nu och få din första burgare på under 10 minuter
@@ -43,16 +44,15 @@ export default function CTASection() {
 
       {/* Primary CTA */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={createFadeInUp(0.2)}
+        initial="initial"
+        whileInView="animate"
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
         className="mb-8"
       >
         <motion.button
           className="btn-primary text-base md:text-lg px-8 md:px-12 py-3 md:py-5 w-full sm:w-auto"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          variants={hoverTap}
           animate={{
             boxShadow: [
               '0 0 0 0 rgba(204, 5, 54, 0.4)',
@@ -73,10 +73,10 @@ export default function CTASection() {
 
       {/* Secondary CTA */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        variants={createFadeIn(0.3)}
+        initial="initial"
+        whileInView="animate"
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.3 }}
         className="mb-12"
       >
         <a
@@ -100,10 +100,10 @@ export default function CTASection() {
 
       {/* Trust Badges */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        variants={createFadeIn(0.4)}
+        initial="initial"
+        whileInView="animate"
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
         className="flex flex-wrap justify-center gap-3 md:gap-6 text-xs md:text-sm text-white/40"
       >
         <div className="flex items-center gap-2">
