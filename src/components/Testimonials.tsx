@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { staggerContainer, staggerItem } from '@/lib/animations'
 
 interface Testimonial {
   id: number
@@ -37,13 +38,16 @@ const testimonials: Testimonial[] = [
 export default function Testimonials() {
   return (
     <div className="section-content relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-12">
-      <div className="grid gap-8 md:gap-12 md:grid-cols-3">
-        {testimonials.map((testimonial, index) => (
+      <motion.div
+        className="grid gap-8 md:gap-12 md:grid-cols-3"
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+      >
+        {testimonials.map((testimonial) => (
           <motion.div
             key={testimonial.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.6 }}
+            variants={staggerItem}
             className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 md:p-8"
           >
             {/* Header with Image and Stars */}
@@ -82,7 +86,7 @@ export default function Testimonials() {
             </cite>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   )
 }

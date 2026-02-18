@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { createScaleIn, createFadeIn } from '@/lib/animations'
 
 interface LoadingScreenProps {
   progress: number
@@ -37,13 +38,7 @@ export default function LoadingScreen({
           <div className="flex flex-col items-center gap-8 px-4">
             {/* Logo */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                duration: 0.8,
-                ease: 'easeOut',
-                delay: 0.2,
-              }}
+              {...createScaleIn(0.2)}
               className="animate-pulse-glow"
             >
               <h1 className="text-display text-white">
@@ -53,9 +48,7 @@ export default function LoadingScreen({
 
             {/* Loading Text */}
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              {...createFadeIn(0.5)}
               className="text-body text-center"
             >
               Laddar din upplevelse...
