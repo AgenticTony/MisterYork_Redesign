@@ -10,6 +10,7 @@ import BurgerSequenceCanvas from '@/components/BurgerSequenceCanvas'
 import Testimonials from '@/components/Testimonials'
 import CTASection from '@/components/CTASection'
 import ScrollIndicator from '@/components/ScrollIndicator'
+import LocationCard from '@/components/LocationCard'
 
 export default function Home() {
   // Shared scroll container ref for all scroll-linked animations
@@ -72,6 +73,28 @@ export default function Home() {
       subtitle: "Utan premium-pris.",
       cta: "Burgare för folket."
     }
+  ]
+
+  // Location data
+  const locations = [
+    {
+      id: 1,
+      city: 'Stockholm',
+      address: 'Gallerian, Sergelgatan',
+      mapUrl: 'https://maps.google.com',
+    },
+    {
+      id: 2,
+      city: 'Göteborg',
+      address: 'Nordstan, Östra Hamngatan',
+      mapUrl: 'https://maps.google.com',
+    },
+    {
+      id: 3,
+      city: 'Malmö',
+      address: 'Triangeln, Malmö Centrum',
+      mapUrl: 'https://maps.google.com',
+    },
   ]
 
   return (
@@ -480,71 +503,15 @@ export default function Home() {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
-            >
-              <h3 className="text-xl font-bold text-york-gold mb-2">Stockholm</h3>
-              <p className="text-white/70 text-sm mb-4">Gallerian, Sergelgatan</p>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
-              >
-                <span>Visa på karta</span>
-                <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
-            >
-              <h3 className="text-xl font-bold text-york-gold mb-2">Göteborg</h3>
-              <p className="text-white/70 text-sm mb-4">Nordstan, Östra Hamngatan</p>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
-              >
-                <span>Visa på karta</span>
-                <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
-            >
-              <h3 className="text-xl font-bold text-york-gold mb-2">Malmö</h3>
-              <p className="text-white/70 text-sm mb-4">Triangeln, Malmö Centrum</p>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
-              >
-                <span>Visa på karta</span>
-                <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </motion.div>
+            {locations.map((location, index) => (
+              <LocationCard
+                key={location.id}
+                city={location.city}
+                address={location.address}
+                mapUrl={location.mapUrl}
+                delay={index * 0.1}
+              />
+            ))}
           </div>
 
           <motion.div
