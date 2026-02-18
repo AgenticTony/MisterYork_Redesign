@@ -60,6 +60,14 @@
     outline-offset: 2px;
     text-decoration: underline;
   }
+
+  /* Global Input Focus State */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #DEAA3A;
+    outline-offset: 2px;
+  }
 }
 
 @layer components {

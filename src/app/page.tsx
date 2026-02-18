@@ -607,7 +607,7 @@ export default function Home() {
                 <input
                   type="email"
                   placeholder="din@email.com"
-                  className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-york-red"
+                  className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white placeholder:text-white/40 focus:border-york-red"
                 />
                 <button className="btn-primary px-4 py-2 text-sm">
                   Gå med
