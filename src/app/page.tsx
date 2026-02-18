@@ -10,13 +10,11 @@ import BurgerSequenceCanvas from '@/components/BurgerSequenceCanvas'
 import Testimonials from '@/components/Testimonials'
 import CTASection from '@/components/CTASection'
 import ScrollIndicator from '@/components/ScrollIndicator'
+import ShowcaseSection, { burgerMenuItems, milkshakeItems, coffeeDessertItems } from '@/components/ShowcaseSection'
 
 // EXAMPLE USAGE: ShowcaseSection component (for reference during migration)
 //
-// To use the new ShowcaseSection component, uncomment the imports below and
-// replace the existing showcase sections with the component usage examples.
-//
-// import ShowcaseSection, { burgerMenuItems, milkshakeItems, coffeeDessertItems } from '@/components/ShowcaseSection'
+// The imports have been added. The showcase sections will be migrated in subsequent subtasks.
 //
 // Then replace the BURGER MENU SHOWCASE section with:
 // <ShowcaseSection
