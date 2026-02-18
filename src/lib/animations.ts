@@ -1,4 +1,7 @@
-import { Variants, Transition } from 'framer-motion'
+import { Variants, Transition, Variant } from 'framer-motion'
+
+// Type exports for better developer experience
+export type { Variants, Transition, Variant }
 
 // Base transition configuration
 export const baseTransition: Transition = {
@@ -87,7 +90,7 @@ export const staggerItem: Variants = {
 }
 
 // Interactive variants for buttons and links
-export const hoverTap = {
+export const hoverTap: Variants = {
   hover: {
     scale: 1.05,
     transition: {
