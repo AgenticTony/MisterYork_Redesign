@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface CsrfTokenResponse {
   success: boolean
@@ -28,9 +29,11 @@ export default function NewsletterForm() {
         const data: CsrfTokenResponse = await response.json()
         if (data.success && data.token) {
           setCsrfToken(data.token)
+        } else {
+          setMessage({ type: 'error', text: 'Kunde inte hämta säkerhetstoken. Ladda om sidan.' })
         }
-      } catch (error) {
-        console.error('Failed to fetch CSRF token:', error)
+      } catch {
+        setMessage({ type: 'error', text: 'Kunde inte ansluta till servern. Försök igen.' })
       }
     }
 
@@ -111,25 +114,61 @@ export default function NewsletterForm() {
           className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-york-red disabled:opacity-50 disabled:cursor-not-allowed"
           required
         />
-        <button
+        <motion.button
           type="submit"
           disabled={isSubmitting || !csrfToken}
-          className="btn-primary px-4 py-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-primary relative px-4 py-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          whileHover={{ scale: !isSubmitting && csrfToken ? 1.02 : 1 }}
+          whileTap={{ scale: !isSubmitting && csrfToken ? 0.98 : 1 }}
+          transition={{ duration: 0.15 }}
         >
-          {isSubmitting ? 'Skickar...' : 'Gå med'}
-        </button>
+          <AnimatePresence mode="wait">
+            {isSubmitting ? (
+              <motion.span
+                key="loading"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center gap-2"
+              >
+                <motion.span
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                  className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                />
+                Skickar...
+              </motion.span>
+            ) : (
+              <motion.span
+                key="submit"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {!csrfToken ? 'Laddar...' : 'Gå med'}
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </form>
 
-      {/* Success/Error Messages */}
-      {message && (
-        <p
-          className={`text-sm mt-3 ${
-            message.type === 'success' ? 'text-green-400' : 'text-red-400'
-          }`}
-        >
-          {message.text}
-        </p>
-      )}
+      {/* Success/Error Messages with Animation */}
+      <AnimatePresence mode="wait">
+        {message && (
+          <motion.p
+            key={message.type}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className={`text-sm mt-3 ${
+              message.type === 'success' ? 'text-green-400' : 'text-red-400'
+            }`}
+          >
+            {message.text}
+          </motion.p>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
