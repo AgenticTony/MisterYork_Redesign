@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import NewsletterForm from './NewsletterForm'
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2026)
@@ -41,20 +42,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h4 className="text-label mb-4">Nyhetsbrev</h4>
-            <p className="text-sm text-white/60 mb-4">Bli en York-insider</p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="din@email.com"
-                className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-york-red"
-              />
-              <button className="btn-primary px-4 py-2 text-sm">
-                Gå med
-              </button>
-            </div>
-          </div>
+          <NewsletterForm />
         </div>
 
         {/* Bottom Bar */}
