@@ -9,7 +9,7 @@ export default function ScrollIndicator() {
   return (
     <motion.div
       style={{ opacity }}
-      className="fixed bottom-24 left-1/2 z-30 -translate-x-1/2 flex flex-col items-center"
+      className="fixed bottom-24 left-1/2 z-30 -translate-x-1/2 flex-col items-center hidden md:flex"
     >
       <motion.div
         animate={{ y: [0, 10, 0] }}
