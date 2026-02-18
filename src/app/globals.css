@@ -210,6 +210,12 @@
   .animation-delay-300 {
     animation-delay: 300ms;
   }
+
+  /* Custom Interactive Element Focus State */
+  .focus-ring:focus-visible {
+    outline: 2px solid #DEAA3A;
+    outline-offset: 2px;
+  }
 }
 
 /* Loading Animation */
