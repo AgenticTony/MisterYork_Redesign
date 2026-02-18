@@ -42,7 +42,7 @@ export default function NewsletterForm() {
         setEmail('')
       } else {
         setStatus('error')
-        setMessage(data.error || 'Något gick fel. Försök igen senare.')
+        setMessage(data.message || 'Något gick fel. Försök igen senare.')
       }
     } catch {
       setStatus('error')
