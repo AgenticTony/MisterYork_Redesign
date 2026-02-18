@@ -53,6 +53,13 @@
     background-color: var(--color-york-red);
     color: white;
   }
+
+  /* Global Link Focus State */
+  a:focus-visible {
+    outline: 2px solid #DEAA3A;
+    outline-offset: 2px;
+    text-decoration: underline;
+  }
 }
 
 @layer components {
