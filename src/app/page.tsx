@@ -512,7 +512,7 @@ export default function Home() {
               <h3 className="text-xl font-bold text-york-gold mb-2">Göteborg</h3>
               <p className="text-white/70 text-sm mb-4">Nordstan, Östra Hamngatan</p>
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/search/?api=1&query=Nordstan+%C3%96stra+Hamngatan+G%C3%B6teborg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-york-gold text-sm transition-colors inline-flex items-center gap-2"
