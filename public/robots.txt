@@ -1,0 +1,14 @@
+# robots.txt for Mister York website
+# https://www.misteryork.se/
+
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific paths if needed (add as required)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /api/
+
+# Crawl-delay (optional, adjust as needed)
+# Crawl-delay: 1
