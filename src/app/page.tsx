@@ -203,99 +203,30 @@ export default function Home() {
       {/* SECTIONS AFTER ANIMATION - Normal scrollable content */}
 
       {/* BURGER MENU SHOWCASE */}
-      <section className="relative pt-2 pb-8 md:pb-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
-        <div className="mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <p className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-york-gold tracking-widest">MENY</p>
-            <h2 className="text-heading mb-4 text-white">
-              Tillverkat med omsorg
-            </h2>
-            <p className="text-body text-white/60">
-              Varje burgare är ett konstverk – från briochebrödet som är bakat från grunden med surdeg, till perfekt kryddskött kött som är smashad till precis rätt texturen. Det är konst.
-            </p>
-          </motion.div>
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center px-4 sm:px-6 lg:px-12 pt-8 md:pt-16 pb-4 bg-deep-black"
+      >
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-york-gold tracking-widest">MENY</p>
+        <h2 className="text-heading mb-4 text-white">
+          Tillverkat med omsorg
+        </h2>
+        <p className="text-body text-white/60">
+          Varje burgare är ett konstverk – från briochebrödet som är bakat från grunden med surdeg, till perfekt kryddskött kött som är smashad till precis rätt texturen. Det är konst.
+        </p>
+      </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
-            {/* Burger Menu Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 md:order-1"
-            >
-              <img
-                src="/HomePageImages/Burger_Menu.png"
-                alt="Mister York Burger Menu"
-                className="w-full h-full object-cover rounded-lg shadow-2xl"
-              />
-            </motion.div>
-
-            {/* Menu Highlights */}
-            <div className="flex flex-col space-y-4 order-2 md:order-2">
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Signature Smash</h3>
-                <p className="text-white/70">
-                  Vår signaturburger med 100% svenskt nötkött, cheddarost, sallad, och hemgjord sås. Den som startade allt.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Bacon Double Smash</h3>
-                <p className="text-white/70">
-                  Dubbel smashad, bacon, cheddar, sallad och sås. För den som vill ha mer av det goda.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Chicken Smash</h3>
-                <p className="text-white/70">
-                Marinerad kyckling med knappt sallad, bacon och cheddar. Ett lättare alternativ för den som föredrar kyckling.
-                </p>
-              </motion.div>
-
-              {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8 hidden md:block"
-              >
-                <a
-                  href="https://order.misteryork.se/se/sv-se"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center justify-center w-full py-4"
-                >
-                  Se hela menyn
-                </a>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ShowcaseSection
+        items={burgerMenuItems}
+        imageSrc="/HomePageImages/Burger_Menu.png"
+        imageAlt="Mister York Burger Menu"
+        ctaText="Se hela menyn"
+        ctaHref="https://order.misteryork.se/se/sv-se"
+      />
 
       {/* MILKSHAKES SHOWCASE */}
       <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
