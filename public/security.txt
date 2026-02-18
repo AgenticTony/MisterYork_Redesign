@@ -1,0 +1,25 @@
+# security.txt for Mister York website
+# https://www.misteryork.se/
+# RFC 9116: Security.txt information
+
+# Contact: How to report security vulnerabilities
+Contact: mailto:security@misteryork.se
+
+# Expiration: Date when this file should be considered stale
+# Update this date regularly to show the file is maintained
+Expires: 2027-02-18T23:59:59.000Z
+
+# Preferred: Languages preferred for security communications
+Preferred-Languages: en, sv
+
+# Canonical: The official location of this security.txt file
+Canonical: https://www.misteryork.se/.well-known/security.txt
+
+# Policy: Security policy page (optional - uncomment and update if available)
+# Policy: https://www.misteryork.se/security-policy
+
+# Acknowledgments: Page where security researchers are acknowledged (optional)
+# Acknowledgments: https://www.misteryork.se/security-hall-of-fame
+
+# Hiring: Security careers page (optional)
+# Hiring: https://www.misteryork.se/careers?department=security
