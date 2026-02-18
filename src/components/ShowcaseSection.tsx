@@ -8,6 +8,60 @@ interface ShowcaseItem {
   description: string
 }
 
+export const burgerMenuItems: ShowcaseItem[] = [
+  {
+    id: 1,
+    title: 'Signature Smash',
+    description: 'Vår signaturburger med 100% svenskt nötkött, cheddarost, sallad, och hemgjord sås. Den som startade allt.',
+  },
+  {
+    id: 2,
+    title: 'Bacon Double Smash',
+    description: 'Dubbel smashad, bacon, cheddar, sallad och sås. För den som vill ha mer av det goda.',
+  },
+  {
+    id: 3,
+    title: 'Chicken Smash',
+    description: 'Marinerad kyckling med knappt sallad, bacon och cheddar. Ett lättare alternativ för den som föredrar kyckling.',
+  },
+]
+
+export const milkshakeItems: ShowcaseItem[] = [
+  {
+    id: 1,
+    title: 'Chocolate Shake',
+    description: 'Krämig chokladsmash gjord på premium belgisk choklad. Silky smooth med en intens kakaosmak som tar dig tillbaka till barndomsminnen.',
+  },
+  {
+    id: 2,
+    title: 'Crunchy Oreo med Grädd',
+    description: 'Den perfekta kombinationen: krossar Oreo-kex med krämig vaniljgrädd. Knasig crunch i varje slurk tillsammans med lenmande choklad- och oreo-smak.',
+  },
+  {
+    id: 3,
+    title: 'Sweet Strawberry',
+    description: 'Söt och frisk jordgubbssmooth gjord på svenska jordgubbar. En klassiker som aldrig går ur stil – naturlig sötma med frisk syrlighet.',
+  },
+]
+
+export const coffeeDessertItems: ShowcaseItem[] = [
+  {
+    id: 1,
+    title: 'Latte',
+    description: 'Nybryggd espressoblandad med silkeslen ångad mjölk. Perfekt balans mellan stark kaffe och krämig mjölk.',
+  },
+  {
+    id: 2,
+    title: 'Oreo Swirl',
+    description: 'Hemgjord vaniljglass swirlad med krossat Oreo-kex. Krämig, knasig och helt underbar.',
+  },
+  {
+    id: 3,
+    title: 'Daim Swirl',
+    description: 'Svensk karamellglass med bitar av Daim. Salt karamell möter chokladkrunch i varje tugga.',
+  },
+]
+
 interface ShowcaseSectionProps {
   items: ShowcaseItem[]
   imageSrc: string
