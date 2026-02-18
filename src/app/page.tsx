@@ -75,7 +75,7 @@ export default function Home() {
   ]
 
   return (
-    <main className="relative bg-deep-black">
+    <main id="main-content" className="relative bg-deep-black">
       {/* Navigation */}
       <Navigation />
 
