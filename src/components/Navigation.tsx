@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { hoverTap } from '@/lib/animations'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -32,8 +33,8 @@ export default function Navigation() {
         <motion.a
           href="/"
           className="flex items-center"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
+          variants={hoverTap}
+          whileHover="hover"
         >
           <img
             src="/logo.svg"
@@ -67,8 +68,9 @@ export default function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary inline-block"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            variants={hoverTap}
+            whileHover="hover"
+            whileTap="tap"
           >
             Beställ
           </motion.a>
@@ -164,8 +166,9 @@ export default function Navigation() {
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
             className="btn-primary text-xl px-12 py-4 mt-4 inline-block text-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            variants={hoverTap}
+            whileHover="hover"
+            whileTap="tap"
             initial={{ opacity: 0, y: 20 }}
             animate={mobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.4 }}
