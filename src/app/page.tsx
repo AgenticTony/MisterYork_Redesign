@@ -11,6 +11,40 @@ import Testimonials from '@/components/Testimonials'
 import CTASection from '@/components/CTASection'
 import ScrollIndicator from '@/components/ScrollIndicator'
 
+// EXAMPLE USAGE: ShowcaseSection component (for reference during migration)
+//
+// To use the new ShowcaseSection component, uncomment the imports below and
+// replace the existing showcase sections with the component usage examples.
+//
+// import ShowcaseSection, { burgerMenuItems, milkshakeItems, coffeeDessertItems } from '@/components/ShowcaseSection'
+//
+// Then replace the BURGER MENU SHOWCASE section with:
+// <ShowcaseSection
+//   items={burgerMenuItems}
+//   imageSrc="/HomePageImages/Burger_Menu.png"
+//   imageAlt="Mister York Burger Menu"
+//   ctaText="Se hela menyn"
+//   ctaHref="https://order.misteryork.se/se/sv-se"
+// />
+//
+// Replace the MILKSHAKES SHOWCASE section with:
+// <ShowcaseSection
+//   items={milkshakeItems}
+//   imageSrc="/HomePageImages/ThreeMilkShakes-removebg-preview.png"
+//   imageAlt="Mister York Milkshakes - Chocolate, Oreo, Strawberry"
+//   ctaText="Beställ shakes nu"
+//   ctaHref="https://order.misteryork.se/se/sv-se"
+// />
+//
+// Replace the COFFEE & DESSERT SHOWCASE section with:
+// <ShowcaseSection
+//   items={coffeeDessertItems}
+//   imageSrc="/HomePageImages/KaffeDessert.png"
+//   imageAlt="Mister York Coffee and Dessert - Latte, Oreo Swirl, Daim Swirl"
+//   ctaText="Beställ kaffe & dessert"
+//   ctaHref="https://order.misteryork.se/se/sv-se"
+// />
+
 export default function Home() {
   // Shared scroll container ref for all scroll-linked animations
   const containerRef = useRef<HTMLDivElement>(null)
