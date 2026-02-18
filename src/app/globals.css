@@ -179,6 +179,37 @@
   .animation-delay-300 {
     animation-delay: 300ms;
   }
+
+  /* Visually hidden but focusable (for skip links, etc.) */
+  .sr-only-focus {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only-focus:focus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background-color: #CC0536;
+    color: white;
+    z-index: 9999;
+    font-weight: theme('fontWeight.semibold');
+    text-decoration: none;
+  }
 }
 
 /* Loading Animation */
