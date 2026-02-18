@@ -229,86 +229,13 @@ export default function Home() {
       />
 
       {/* MILKSHAKES SHOWCASE */}
-      <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
-            {/* Milkshake Image - First on mobile */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 md:order-1 h-full"
-            >
-              <img
-                src="/HomePageImages/ThreeMilkShakes-removebg-preview.png"
-                alt="Mister York Milkshakes - Chocolate, Oreo, Strawberry"
-                className="w-full h-full object-cover rounded-lg shadow-2xl"
-              />
-            </motion.div>
-
-            {/* Flavors List - Second on mobile */}
-            <div className="flex flex-col space-y-4 order-2 md:order-2">
-              {/* Chocolate Shake */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Chocolate Shake</h3>
-                <p className="text-white/70">
-                  Krämig chokladsmash gjord på premium belgisk choklad. Silky smooth med en intens kakaosmak som tar dig tillbaka till barndomsminnen.
-                </p>
-              </motion.div>
-
-              {/* Oreo Crunch Shake */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Crunchy Oreo med Grädd</h3>
-                <p className="text-white/70">
-                  Den perfekta kombinationen: krossar Oreo-kex med krämig vaniljgrädd. Knasig crunch i varje slurk tillsammans med lenmande choklad- och oreo-smak.
-                </p>
-              </motion.div>
-
-              {/* Strawberry Shake */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Sweet Strawberry</h3>
-                <p className="text-white/70">
-                  Söt och frisk jordgubbssmooth gjord på svenska jordgubbar. En klassiker som aldrig går ur stil – naturlig sötma med frisk syrlighet.
-                </p>
-              </motion.div>
-
-              {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8 hidden md:block"
-              >
-                <a
-                  href="https://order.misteryork.se/se/sv-se"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center justify-center w-full py-4"
-                >
-                  Beställ shakes nu
-                </a>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ShowcaseSection
+        items={milkshakeItems}
+        imageSrc="/HomePageImages/ThreeMilkShakes-removebg-preview.png"
+        imageAlt="Mister York Milkshakes - Chocolate, Oreo, Strawberry"
+        ctaText="Beställ shakes nu"
+        ctaHref="https://order.misteryork.se/se/sv-se"
+      />
 
       {/* COFFEE & DESSERT SHOWCASE */}
       <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
