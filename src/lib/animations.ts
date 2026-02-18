@@ -168,3 +168,186 @@ export const menuIconBottom: Variants = {
     d: 'M4 6h16',
   },
 }
+
+// ============================================================================
+// VARIANT FACTORY FUNCTIONS
+// Functions that create variants with dynamic delays and custom timing
+// ============================================================================
+
+/**
+ * Creates a fadeInUp variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for fade in from bottom animation
+ */
+export const createFadeInUp = (delay = 0): Variants => ({
+  initial: {
+    opacity: 0,
+    y: 30,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
+
+/**
+ * Creates a fadeIn variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for simple fade in animation
+ */
+export const createFadeIn = (delay = 0): Variants => ({
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
+
+/**
+ * Creates a slideInLeft variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for slide in from left animation
+ */
+export const createSlideInLeft = (delay = 0): Variants => ({
+  initial: {
+    opacity: 0,
+    x: -30,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
+
+/**
+ * Creates a slideInRight variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for slide in from right animation
+ */
+export const createSlideInRight = (delay = 0): Variants => ({
+  initial: {
+    opacity: 0,
+    x: 30,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
+
+/**
+ * Creates a scaleIn variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for scale in with fade animation
+ */
+export const createScaleIn = (delay = 0): Variants => ({
+  initial: {
+    opacity: 0,
+    scale: 0.95,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
+
+/**
+ * Creates a staggerContainer variant with custom stagger timing
+ * @param staggerDelay - Delay between each child animation in seconds (default: 0.1)
+ * @returns Variants object for container with staggered children
+ */
+export const createStaggerContainer = (staggerDelay = 0.1): Variants => ({
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: staggerDelay,
+    },
+  },
+})
+
+/**
+ * Creates a staggerItem variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for individual stagger item animation
+ */
+export const createStaggerItem = (delay = 0): Variants => ({
+  initial: {
+    opacity: 0,
+    y: 30,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
+
+/**
+ * Creates a mobileMenuItem variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for mobile menu item animation
+ */
+export const createMobileMenuItem = (delay = 0): Variants => ({
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
+
+/**
+ * Creates a slideUpBar variant with a custom delay
+ * @param delay - Delay in seconds before animation starts (default: 0)
+ * @returns Variants object for bottom bar slide up animation
+ */
+export const createSlideUpBar = (delay = 0): Variants => ({
+  initial: {
+    y: 100,
+  },
+  animate: {
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      delay,
+    },
+  },
+})
