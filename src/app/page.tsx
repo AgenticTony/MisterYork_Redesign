@@ -11,6 +11,9 @@ import Testimonials from '@/components/Testimonials'
 import CTASection from '@/components/CTASection'
 import ScrollIndicator from '@/components/ScrollIndicator'
 
+// Animation variants
+import { fadeInUp, scaleIn, slideInRight, createFadeInUp } from '@/lib/animations'
+
 export default function Home() {
   // Shared scroll container ref for all scroll-linked animations
   const containerRef = useRef<HTMLDivElement>(null)
@@ -174,10 +177,10 @@ export default function Home() {
       <section className="relative pt-2 pb-8 md:pb-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
         <div className="mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-york-gold tracking-widest">MENY</p>
@@ -192,10 +195,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
             {/* Burger Menu Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              variants={scaleIn}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="order-1 md:order-1"
             >
               <img
@@ -208,10 +211,10 @@ export default function Home() {
             {/* Menu Highlights */}
             <div className="flex flex-col space-y-4 order-2 md:order-2">
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
               >
                 <h3 className="text-lg md:text-xl font-bold text-white mb-2">Signature Smash</h3>
                 <p className="text-white/70">
@@ -220,8 +223,9 @@ export default function Home() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
@@ -232,8 +236,9 @@ export default function Home() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
@@ -245,10 +250,11 @@ export default function Home() {
 
               {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={fadeInUp}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ delay: 0.3 }}
                 className="mt-8 hidden md:block"
               >
                 <a
@@ -271,10 +277,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
             {/* Milkshake Image - First on mobile */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              variants={scaleIn}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="order-1 md:order-1 h-full"
             >
               <img
@@ -288,10 +294,10 @@ export default function Home() {
             <div className="flex flex-col space-y-4 order-2 md:order-2">
               {/* Chocolate Shake */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
               >
                 <h3 className="text-lg md:text-xl font-bold text-white mb-2">Chocolate Shake</h3>
                 <p className="text-white/70">
@@ -301,8 +307,9 @@ export default function Home() {
 
               {/* Oreo Crunch Shake */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
@@ -314,8 +321,9 @@ export default function Home() {
 
               {/* Strawberry Shake */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
@@ -327,10 +335,11 @@ export default function Home() {
 
               {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={fadeInUp}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ delay: 0.3 }}
                 className="mt-8 hidden md:block"
               >
                 <a
@@ -353,10 +362,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
             {/* Coffee & Dessert Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              variants={scaleIn}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="order-1 md:order-1"
             >
               <img
@@ -370,10 +379,10 @@ export default function Home() {
             <div className="flex flex-col space-y-4 order-2 md:order-2">
               {/* Latte */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
               >
                 <h3 className="text-lg md:text-xl font-bold text-white mb-2">Latte</h3>
                 <p className="text-white/70">
@@ -383,8 +392,9 @@ export default function Home() {
 
               {/* Oreo Swirl */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
@@ -396,8 +406,9 @@ export default function Home() {
 
               {/* Daim Swirl */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={slideInRight}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
@@ -409,10 +420,11 @@ export default function Home() {
 
               {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={fadeInUp}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ delay: 0.3 }}
                 className="mt-8 hidden md:block"
               >
                 <a
@@ -464,10 +476,10 @@ export default function Home() {
       <section id="hitta-oss" className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-12 bg-deep-black">
         <div className="mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-york-gold tracking-widest">HITTA OSS</p>
@@ -481,10 +493,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={fadeInUp}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
             >
               <h3 className="text-xl font-bold text-york-gold mb-2">Stockholm</h3>
@@ -503,10 +515,11 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={fadeInUp}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ delay: 0.1 }}
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
             >
               <h3 className="text-xl font-bold text-york-gold mb-2">Göteborg</h3>
@@ -525,10 +538,11 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={fadeInUp}
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ delay: 0.2 }}
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center"
             >
               <h3 className="text-xl font-bold text-york-gold mb-2">Malmö</h3>
@@ -548,10 +562,11 @@ export default function Home() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ delay: 0.3 }}
             className="mt-8 text-center"
           >
             <a
