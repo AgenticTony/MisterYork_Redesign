@@ -238,86 +238,13 @@ export default function Home() {
       />
 
       {/* COFFEE & DESSERT SHOWCASE */}
-      <section className="relative py-8 md:py-16 px-4 sm:px-6 lg:px-12 bg-deep-black">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8 md:h-[500px]">
-            {/* Coffee & Dessert Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 md:order-1"
-            >
-              <img
-                src="/HomePageImages/KaffeDessert.png"
-                alt="Mister York Coffee and Dessert - Latte, Oreo Swirl, Daim Swirl"
-                className="w-full h-full object-cover rounded-lg shadow-2xl"
-              />
-            </motion.div>
-
-            {/* Menu Items */}
-            <div className="flex flex-col space-y-4 order-2 md:order-2">
-              {/* Latte */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Latte</h3>
-                <p className="text-white/70">
-                  Nybryggd espressoblandad med silkeslen ångad mjölk. Perfekt balans mellan stark kaffe och krämig mjölk.
-                </p>
-              </motion.div>
-
-              {/* Oreo Swirl */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Oreo Swirl</h3>
-                <p className="text-white/70">
-                  Hemgjord vaniljglass swirlad med krossat Oreo-kex. Krämig, knasig och helt underbar.
-                </p>
-              </motion.div>
-
-              {/* Daim Swirl */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2">Daim Swirl</h3>
-                <p className="text-white/70">
-                  Svensk karamellglass med bitar av Daim. Salt karamell möter chokladkrunch i varje tugga.
-                </p>
-              </motion.div>
-
-              {/* CTA Button - Hidden on mobile (has sticky bottom button) */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8 hidden md:block"
-              >
-                <a
-                  href="https://order.misteryork.se/se/sv-se"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center justify-center w-full py-4"
-                >
-                  Beställ kaffe & dessert
-                </a>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ShowcaseSection
+        items={coffeeDessertItems}
+        imageSrc="/HomePageImages/KaffeDessert.png"
+        imageAlt="Mister York Coffee and Dessert - Latte, Oreo Swirl, Daim Swirl"
+        ctaText="Beställ kaffe & dessert"
+        ctaHref="https://order.misteryork.se/se/sv-se"
+      />
 
 
       {/* SECTION 2: QUALITY}
